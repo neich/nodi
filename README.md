@@ -1,32 +1,31 @@
-di-lite.coffee [![Build Status](https://travis-ci.org/squareteam/di.coffee.png?branch=master)](https://travis-ci.org/squareteam/di.coffee) [![Dependency Status](https://gemnasium.com/squareteam/di.coffee.png)](https://gemnasium.com/squareteam/di.coffee)
-==========
-
-di-lite is designed to act as a minimalistic dependency injection container in Javascript. It has no dependency on
+This project is a fork of (di-lite)[https://github.com/NickQiZhu/di.js], and renamed to nodi and modified to be able to be used with node.
+ 
+ is designed to act as a minimalistic dependency injection container in Javascript. It has no dependency on
 any other framework such as CommonJs or RequireJs in contrary to some of other more heavy weight DI container
 implementation on the web.
 
 Use Cases
 ---------
 
-di-lite was initially extracted from a Backbone.js based application. In this application, RequireJs was used to wire
+nodi was initially extracted from a Backbone.js based application. In this application, RequireJs was used to wire
 dependencies at module level. Each module could contain multiple views and models. We found using RequireJs to wire
 every individual view and model is a bit of overkill and verbose, however we still want the inversion of control to
 keep our code nicely isolated and testable. That's the reason behind the creation of this lightweight container
 implementation - to provide dependencies injection at sub-modular level.
 
-That being said di-lite is designed to be used standalone there is no dependency on Backbone or RequireJs. Its a fully
+That being said nodi is designed to be used standalone there is no dependency on Backbone or RequireJs. Its a fully
 functional dependency injection container by itself while extremely lightweight and works well both in browser or node.
 
 
 Install with npm
 --------------------
-npm install di-lite
+npm install nodi
 
 
 Install without npm
 --------------------
 Download
-* [di-lite](https://github.com/NickQiZhu/di.js)
+* [nodi](https://github.com/neich/nodi.js)
 
 How-to Guide
 ------------
@@ -70,8 +69,8 @@ ctx.register("c", C);
 ctx.initialize();
 
 var instanceOfA = ctx.get("a");
-instaceOfA.b === ctx.get("b"); // true
-instaceOfA.c === ctx.get("c"); // true
+instanceOfA.b === ctx.get("b"); // true
+instanceOfA.c === ctx.get("c"); // true
 
 var instanceOfB = ctx.get("b");
 instanceOfB.c === ctx.get("c"); // true
@@ -91,12 +90,12 @@ var A = function(){
 ctx.initialize();
 
 var instanceOfA = ctx.get("a");
-instaceOfA.bee === ctx.get("b"); // true - explicit assignment
-instaceOfA.c === ctx.get("c"); // true - implicit assignment
+instanceOfA.bee === ctx.get("b"); // true - explicit assignment
+instanceOfA.c === ctx.get("c"); // true - implicit assignment
 ```
 
 ### Passive Dependency Resolution
-di-lite container resolves dependency passively on demand when ```get()``` method is invoked. It only tries to resolve
+nodi container resolves dependency passively on demand when ```get()``` method is invoked. It only tries to resolve
 dependency for this particular object thus only traverse its sub-dependency-tree. ```initialize()``` call does resolve
 all dependencies for all registered objects however it is actually optional (though recommended to guarantee).
 
@@ -108,7 +107,7 @@ ctx.initialize(); // this triggers the dependency resolution for everyone regist
 
 ### Singleton By Default
 
-All objects created and managed by di-lite.js container are by default singleton.
+All objects created and managed by nodi.js container are by default singleton.
 
 ```js
 ctx.get("a") === ctx.get("a"); // true
@@ -137,7 +136,7 @@ ctx.register("array", Array, ["Saab","Volvo","BMW"]); // multiple argument is pa
 
 ### Cyclical Dependency
 
-di-lite.js container supports solution of cyclical dependencies, so the following dependency relationship is valid.
+nodi.js container supports solution of cyclical dependencies, so the following dependency relationship is valid.
 
 ```js
 var A = function(){
@@ -164,7 +163,7 @@ ctx.get("b").a.b === ctx.get("b"); // true
 
 ### Functional Object
 
-What if your are using functional object pattern and do not have a constructor function for your object? di-lite.js fully
+What if your are using functional object pattern and do not have a constructor function for your object? nodi.js fully
 supports functional object pattern since we believe this is the best way to create javascript object anyway.
 
 ```js
@@ -189,7 +188,7 @@ ctx.get("funcObjProto"); // will return you a new instance of FuncObject each ti
 
 ### Lifecycle Hook
 
-di-lite container provides a lifecycle hook callback ```ready``` if the wired object provide a ```ready``` function
+nodi container provides a lifecycle hook callback ```ready``` if the wired object provide a ```ready``` function
 then the callback will be executed once all dependencies are satisfied.
 
 ```js
@@ -214,7 +213,7 @@ ctx.get("a").bee === ctx.get("b"); // true
 ### Create Your Own
 
 Sometimes you just don't have control over the object you want to wire or maybe you need to create the object
-and initialize before anything else is create or even registered. You can manually insert object into di-lite
+and initialize before anything else is create or even registered. You can manually insert object into nodi
 container and control the whole creation process this way.
 
 ```js
@@ -225,7 +224,7 @@ ctx.get("history").start(); // you can use it since it is already created and in
 ctx.initialize(); // initialize the rest of the objects
 ```
 
-How to build di-lite locally
+How to build nodi locally
 ---------------------------
 
 ### Prerequisite modules
@@ -237,23 +236,23 @@ Make sure the following packages are installed on your machine
 ### Install dependencies
 
 ```bash
-di-lite$ npm install
+nodi$ npm install
 ```
 
 ### Build
 
 ```bash
-di-lite$ grunt build
+nodi$ grunt build
 ```
 
 ### Tests
 
 ```bash
-di-lite$ grunt test
+nodi$ grunt test
 ```
 
 License
 --------------------
 
-di-lite is an open source javascript library and licensed under
+nodi is an open source javascript library and licensed under
 [Apache License v2](http://www.apache.org/licenses/LICENSE-2.0.html).
