@@ -12,11 +12,11 @@
     "di container"
   ],
   "homepage": "http://github.com/neich/nodi",
-  "author": {
-    "name": "Nick Zhu",
-    "url": "http://nzhu.blogspot.ca/"
-  },
-  "contributors": ["Charly POLY <cpoly55@gmail.com>", "Ignacio Martín <natx.mc@gmail.com>"],
+  "author": "Nick Zhu (http://nzhu.blogspot.ca/)",
+  "contributors": [
+    "Charly POLY <cpoly55@gmail.com>",
+    "Ignacio Martín <natx.mc@gmail.com>"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/neich/nodi.git"
@@ -24,10 +24,10 @@
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.2",
-    "grunt-contrib-clean" : "0.4.x",
-    "grunt-contrib-uglify" : "0.4.x",
-    "grunt-contrib-concat" : "0.3.x",
-    "grunt-jasmine-node" : "0.2.x",
+    "grunt-contrib-clean": "0.4.x",
+    "grunt-contrib-uglify": "0.4.x",
+    "grunt-contrib-concat": "0.3.x",
+    "grunt-jasmine-node": "0.2.x",
     "uglify-js": "2.x",
     "jquery": "1.x",
     "sinon": "1.x",
@@ -35,5 +35,9 @@
   },
   "scripts": {
     "test": "grunt test"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/neich/nodi/issues"
+  },
+  "license": "ISC"
 }
