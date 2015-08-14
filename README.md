@@ -1,6 +1,6 @@
-This project is a fork of (di-lite)[https://github.com/NickQiZhu/di.js], and renamed to nodi and modified to be able to be used with node.
+This project is a fork of [di.js](https://github.com/NickQiZhu/di.js), renamed to nodi and modified to be able to be used as-it-is with node.
  
- is designed to act as a minimalistic dependency injection container in Javascript. It has no dependency on
+It is designed to act as a minimalistic dependency injection container in Javascript. It has no dependency on
 any other framework such as CommonJs or RequireJs in contrary to some of other more heavy weight DI container
 implementation on the web.
 
