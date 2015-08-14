@@ -2,7 +2,7 @@
   "name": "nodi",
   "version": "0.1.1",
   "description": "A ultra light-weight dependency injection container in Javascript ",
-  "main": "dist/di-lite.js",
+  "main": "dist/nodi.js",
   "keywords": [
     "di",
     "ioc",
